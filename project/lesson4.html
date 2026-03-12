@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Урок 4. Восьмеричная и шестнадцатеричная системы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="overlay"></div>
+    <div class="sidebar">
+    
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Логотип колледжа" class="logo-img"> 
+            <span class="logo-text">Информатика</span>
+        </div>
+        
+        <h2>Меню курса</h2>
+        <a href="index.html">Главная</a>
+        <a href="lesson1.html">Урок 1. Измерение информации</a>
+        <a href="lesson2.html">Урок 2. Единицы измерения</a>
+        <a href="lesson3.html">Урок 3. Системы счисления (2/10)</a>
+        <a href="lesson4.html">Урок 4. Системы счисления (8/16)</a>
+        <a href="lesson5.html">Урок 5. Кодирование</a>
+        <a href="lesson6.html">Урок 6. Алгебра логики</a>
+        <a href="lesson7.html">Урок 7. Логические задачи</a>
+        <a href="lesson8.html">Урок 8. Теория графов</a>
+        <a href="lesson9.html">Урок 9. Поиск путей</a>
+        <a href="lesson10.html">Урок 10. Базы данных</a>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="content-placeholder">
+            <h1>Урок 4. Восьмеричная и шестнадцатеричная системы счисления</h1>
+
+            <h2>1. Зачем нужны восьмеричная и шестнадцатеричная системы?</h2>
+            <p>Двоичная система удобна для компьютеров, но человеку записывать длинные последовательности нулей и единиц неудобно. Для компактного представления двоичных кодов используют системы счисления с большим основанием: восьмеричную (основание 8) и шестнадцатеричную (основание 16). Они позволяют каждой группе битов сопоставить один символ, что делает запись короче и понятнее. Например, двоичное число 111100001010 может быть записано как 3608<sub>8</sub> в восьмеричной или F0A<sub>16</sub> в шестнадцатеричной. Эти системы широко применяются в программировании, при настройке оборудования и в документации.</p>
+
+            <h2>2. Алфавит и основание</h2>
+            <ul>
+                <li><strong>Восьмеричная система:</strong> использует цифры 0, 1, 2, 3, 4, 5, 6, 7. Каждая цифра соответствует трём двоичным разрядам (триаде).</li>
+                <li><strong>Шестнадцатеричная система:</strong> использует 16 символов: цифры 0–9 и буквы A, B, C, D, E, F, где A = 10, B = 11, C = 12, D = 13, E = 14, F = 15. Каждая цифра соответствует четырём двоичным разрядам (тетраде).</li>
+            </ul>
+
+            <h3>2.1. Таблица соответствия</h3>
+            <table>
+                <tr><th>10</th><th>2</th><th>8</th><th>16</th></tr>
+                <tr><td>0</td><td>0000</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>0001</td><td>1</td><td>1</td></tr>
+                <tr><td>2</td><td>0010</td><td>2</td><td>2</td></tr>
+                <tr><td>3</td><td>0011</td><td>3</td><td>3</td></tr>
+                <tr><td>4</td><td>0100</td><td>4</td><td>4</td></tr>
+                <tr><td>5</td><td>0101</td><td>5</td><td>5</td></tr>
+                <tr><td>6</td><td>0110</td><td>6</td><td>6</td></tr>
+                <tr><td>7</td><td>0111</td><td>7</td><td>7</td></tr>
+                <tr><td>8</td><td>1000</td><td>10</td><td>8</td></tr>
+                <tr><td>9</td><td>1001</td><td>11</td><td>9</td></tr>
+                <tr><td>10</td><td>1010</td><td>12</td><td>A</td></tr>
+                <tr><td>11</td><td>1011</td><td>13</td><td>B</td></tr>
+                <tr><td>12</td><td>1100</td><td>14</td><td>C</td></tr>
+                <tr><td>13</td><td>1101</td><td>15</td><td>D</td></tr>
+                <tr><td>14</td><td>1110</td><td>16</td><td>E</td></tr>
+                <tr><td>15</td><td>1111</td><td>17</td><td>F</td></tr>
+            </table>
+
+            <h2>3. Перевод из десятичной системы в восьмеричную и шестнадцатеричную</h2>
+            <p>Для перевода целого десятичного числа в систему с основанием q (q = 8 или 16) его нужно последовательно делить на q, записывая остатки (от 0 до q-1), пока частное не станет равным 0. Затем остатки выписываются в обратном порядке. Для дробной части число последовательно умножается на q, целые части результата (от 0 до q-1) записываются как цифры после запятой.</p>
+
+            <h3>3.1. Перевод целых чисел</h3>
+            <div class="example">
+                <strong>Пример (изображение):</strong> 
+                <figure>
+                    <img src="img/scheme3.png" alt="Десятичное в восьмеричное">
+                    <figcaption>Рис. 1. Перевод 461<sub>10</sub> в восьмеричную систему счисления. Ответ: 715<sub>8</sub> (на изображении показан процесс).</figcaption>
+                </figure>
+            </div>
+            <div class="example">
+                <p><strong>Пример 1 (десятичное → восьмеричное):</strong> Перевести 125<sub>10</sub> в восьмеричную систему.</p>
+                <p>125 ÷ 8 = 15 (остаток 5)<br>
+                15 ÷ 8 = 1 (остаток 7)<br>
+                1 ÷ 8 = 0 (остаток 1)<br>
+                Записываем остатки снизу вверх: 175<sub>8</sub>.</p>
+            </div>
+            <div class="example">
+                <strong>Пример (изображение):</strong> 
+                <figure>
+                    <img src="img/scheme4.png" alt="Десятичное в шестнадцатеричное">
+                    <figcaption>Рис. 1. Перевод 331<sub>10</sub> в шестнадцатеричную систему счисления. Ответ: 14B<sub>16</sub> (на изображении показан процесс).</figcaption>
+                </figure>
+            </div>
+            <div class="example">
+                <p><strong>Пример 2 (десятичное → шестнадцатеричное):</strong> Перевести 284<sub>10</sub> в шестнадцатеричную систему.</p>
+                <p>284 ÷ 16 = 17 (остаток 12 → C)<br>
+                17 ÷ 16 = 1 (остаток 1)<br>
+                1 ÷ 16 = 0 (остаток 1)<br>
+                Результат: 11C<sub>16</sub>.</p>
+            </div>
+
+            <h3>3.2. Перевод дробных чисел</h3>
+            <div class="example">
+                <p><strong>Пример 3 (десятичная дробь → восьмеричная):</strong> Перевести 0,40625<sub>10</sub> в восьмеричную систему.</p>
+                <p>0,40625 × 8 = 3,25 → целая часть 3<br>
+                0,25 × 8 = 2,0 → целая часть 2<br>
+                Дробная часть стала 0. Получаем 0,32<sub>8</sub>.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример 4 (десятичная дробь → шестнадцатеричная):</strong> Перевести 0,2<sub>10</sub> в шестнадцатеричную систему с точностью до трёх знаков.</p>
+                <p>0,2 × 16 = 3,2 → целая часть 3<br>
+                0,2 × 16 = 3,2 → снова 3 (процесс зацикливается)<br>
+                Записываем: 0,333...<sub>16</sub> (периодическая дробь).</p>
+            </div>
+
+            <h2>4. Перевод из восьмеричной и шестнадцатеричной в десятичную</h2>
+            <p>Для перевода числа из любой позиционной системы в десятичную используется развёрнутая форма записи (как в уроке 3).</p>
+
+            <div class="example">
+                <p><strong>Пример (восьмеричное → десятичное):</strong> 241<sub>8</sub> → X<sub>10</sub></p>
+                <p>2·8<sup>2</sup> + 4·8<sup>1</sup> + 1·8<sup>0</sup> = 128 + 32 + 1 = <strong>161<sub>10</sub></strong>.</p>
+            </div>
+            
+            <div class="example">
+                <p><strong>Пример (шестнадцатеричное → десятичное):</strong> 2E<sub>16</sub> → X<sub>10</sub></p>
+                <p>E = 14.<br>
+                2·16<sup>1</sup> + 14·16<sup>0</sup> = 32 + 14 = <strong>46<sub>10</sub></strong>.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример с дробью (восьмеричное):</strong> 12,4<sub>8</sub> → десятичная.</p>
+                <p>1·8<sup>1</sup> + 2·8<sup>0</sup> + 4·8<sup>-1</sup> = 8 + 2 + 0,5 = 10,5<sub>10</sub>.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример с дробью (шестнадцатеричное):</strong> A,1<sub>16</sub> → десятичная.</p>
+                <p>A = 10, 1·16<sup>-1</sup> = 1/16 = 0,0625. Итого: 10 + 0,0625 = 10,0625<sub>10</sub>.</p>
+            </div>
+            <div class="example">
+                <strong>Пример (изображение):</strong> 
+                <figure>
+                    <img src="img/scheme6.png" alt="Шестнадцатерирчное в десятеричное">
+                    <figcaption>Рис. 1. Перевод F5C,E6<sub>10</sub> в десятеричную систему счисления. Ответ: 3932,9<sub>10</sub> (на изображении показан процесс).</figcaption>
+                </figure>
+            </div>
+
+            <h2>5. Связь с двоичной системой. Перевод через триады и тетрады</h2>
+            <p>Поскольку 8 = 2<sup>3</sup> и 16 = 2<sup>4</sup>, перевод между двоичной и этими системами выполняется очень просто: группируем двоичные разряды справа налево (для целой части) и слева направо (для дробной) по 3 (для восьмеричной) или по 4 (для шестнадцатеричной) и заменяем каждую группу соответствующей цифрой.</p>
+
+            <h3>5.1. Двоичная → восьмеричная</h3>
+            <div class="example">
+                <p><strong>Пример:</strong> 111011<sub>2</sub> → восьмеричная.</p>
+                <p>Разбиваем справа налево на триады: 111 011. (Если слева не хватает разрядов, дописываем незначащие нули.)</p>
+                <p>111<sub>2</sub> = 7, 011<sub>2</sub> = 3. Ответ: 73<sub>8</sub>.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример с дробью:</strong> 1101,101<sub>2</sub> → восьмеричная.</p>
+                <p>Целая часть: 1101 → разбиваем справа налево: 1 101 → дополняем слева до трёх: 001 101 → 1 5 (т.к. 001=1, 101=5) → 15<sub>8</sub>.</p>
+                <p>Дробная часть: 101 → разбиваем слева направо: 101 (уже триада) = 5. Ответ: 15,5<sub>8</sub>.</p>
+            </div>
+
+            <h3>5.2. Двоичная → шестнадцатеричная</h3>
+            <div class="example">
+                <p><strong>Пример:</strong> 111011<sub>2</sub> → шестнадцатеричная.</p>
+                <p>Разбиваем справа налево на тетрады: 11 1011. Дополняем левую группу нулями: 0011 1011.</p>
+                <p>0011<sub>2</sub> = 3, 1011<sub>2</sub> = B. Ответ: 3B<sub>16</sub>.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример с дробью:</strong> 11101,101<sub>2</sub> → шестнадцатеричная.</p>
+                <p>Целая часть: 11101 → разбиваем справа налево: 1 1101 → дополняем: 0001 1101 → 1 D.</p>
+                <p>Дробная часть: 101 → разбиваем слева направо: 1010 (дополняем справа нулём до 4 бит) = A. Ответ: 1D,A<sub>16</sub>.</p>
+            </div>
+
+            <h3>5.3. Обратный перевод (восьмеричная/шестнадцатеричная → двоичная)</h3>
+            <p>Каждая цифра восьмеричного числа заменяется трёхзначным двоичным кодом, каждая цифра шестнадцатеричного – четырёхзначным (согласно таблице). Незначащие нули в начале и конце можно опускать.</p>
+            <div class="example">
+                <p><strong>Пример:</strong> 57<sub>8</sub> → двоичная.</p>
+                <p>5 → 101, 7 → 111. Ответ: 101111<sub>2</sub>.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример:</strong> 2F<sub>16</sub> → двоичная.</p>
+                <p>2 → 0010, F (15) → 1111. Ответ: 101111<sub>2</sub> (первые два нуля отбрасываем).</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример с дробью:</strong> 12,3<sub>8</sub> → двоичная.</p>
+                <p>1 → 001, 2 → 010 (целая часть); 3 → 011 (дробная). Ответ: 001010,011<sub>2</sub> = 1010,011<sub>2</sub>.</p>
+            </div>
+
+            <h2>6. Арифметика в восьмеричной и шестнадцатеричной системах</h2>
+            <p>Сложение и вычитание выполняются по тем же правилам, что и в десятичной системе, но с учётом основания. Рассмотрим несколько примеров.</p>
+            <div class="example">
+                <p><strong>Сложение в восьмеричной:</strong> 347<sub>8</sub> + 56<sub>8</sub>.</p>
+                <p>Записываем столбиком (изображение):</p>
+                <figure>
+                    <img src="img/scheme7.png" alt="Сложение восьмеричных">
+                    <figcaption>Рис. 1. Сложение 347<sub>8</sub> и 56<sub>8</sub>. Ответ: 425<sub>8</sub> </figcaption>
+                </figure>
+                <p>Пояснение: 7+6=13<sub>10</sub> = 15<sub>8</sub> (пишем 5, перенос 1); 4+5+1=10<sub>10</sub> = 12<sub>8</sub> (пишем 2, перенос 1); 3+1=4. Ответ: 425<sub>8</sub>.</p>
+            </div>
+            <div class="example">
+                <p><strong>Сложение в шестнадцатеричной:</strong> A3<sub>16</sub> + 1F<sub>16</sub>.</p>
+                <p>A=10, F=15. 3+15=18<sub>10</sub> = 12<sub>16</sub> (пишем 2, перенос 1); A+1+1=12<sub>10</sub> = C. Ответ: C2<sub>16</sub>.</p>
+            </div>
+
+<h2>4. Проверочный тест</h2>
+<div style="background: #f9f9f9; border-radius: 8px; padding: 20px; border: 1px solid #ccc; margin-top: 20px;">
+    <div style="margin-bottom: 15px;">
+        <label for="num">Выберите номер вопроса:</label>
+        <select id="num" style="padding: 5px; margin-left: 10px;">
+            <option value="1">Вопрос 1</option>
+            <option value="2">Вопрос 2</option>
+            <option value="3">Вопрос 3</option>
+            <option value="4">Вопрос 4</option>
+            <option value="5">Вопрос 5</option>
+            <option value="6">Вопрос 6</option>
+            <option value="7">Вопрос 7</option>
+            <option value="8">Вопрос 8</option>
+            <option value="9">Вопрос 9</option>
+            <option value="10">Вопрос 10</option>
+            <option value="11">Вопрос 11</option>
+            <option value="12">Вопрос 12</option>
+        </select>
+    </div>
+
+    <div id="qtext" style="font-weight: bold; margin-bottom: 15px;"></div>
+    <div id="opts"></div>
+    <button id="btn" style="background: #007bff; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; margin-top: 15px;">Проверить</button>
+    <div id="res" style="margin-top: 15px; padding: 10px; border-radius: 4px; display: none;"></div>
+</div>
+
+<script>
+let q = [
+    { text: "Переведите 95 из десятичной в восьмеричную систему.", 
+      opts: ["137", "157", "127", "147"], ans: 0 },
+    { text: "Переведите 95 из десятичной в шестнадцатеричную систему.", 
+      opts: ["5F", "6F", "5E", "6E"], ans: 0 },
+    { text: "Переведите 256 из десятичной в восьмеричную систему.", 
+      opts: ["400", "500", "300", "200"], ans: 0 },
+    { text: "Переведите 256 из десятичной в шестнадцатеричную систему.", 
+      opts: ["100", "200", "256", "400"], ans: 0 },
+    { text: "Переведите число 123 из восьмеричной в десятичную систему.", 
+      opts: ["83", "93", "73", "103"], ans: 0 },
+    { text: "Переведите число 777 из восьмеричной в десятичную систему.", 
+      opts: ["511", "501", "521", "531"], ans: 0 },
+    { text: "Переведите число 1A из шестнадцатеричной в десятичную систему.", 
+      opts: ["26", "16", "36", "46"], ans: 0 },
+    { text: "Переведите число FF из шестнадцатеричной в десятичную систему.", 
+      opts: ["255", "256", "254", "265"], ans: 0 },
+    { text: "Переведите двоичное число 110011 в восьмеричную систему.", 
+      opts: ["63", "53", "73", "43"], ans: 0 },
+    { text: "Переведите двоичное число 1010101 в восьмеричную систему.", 
+      opts: ["125", "135", "115", "105"], ans: 0 },
+    { text: "Переведите восьмеричное число 76 в двоичную систему.", 
+      opts: ["111110", "111111", "111100", "111101"], ans: 0 },
+    { text: "Переведите шестнадцатеричное число 9F в двоичную систему.", 
+      opts: ["10011111", "10001111", "10111111", "10011110"], ans: 0 }
+];
+
+let sel = document.getElementById('num');
+let qdiv = document.getElementById('qtext');
+let optsDiv = document.getElementById('opts');
+let btn = document.getElementById('btn');
+let resDiv = document.getElementById('res');
+
+function showQ(n) {
+    let i = n - 1;
+    qdiv.innerText = q[i].text;
+    optsDiv.innerHTML = '';
+    let opts = q[i].opts;
+    for (let j = 0; j < opts.length; j++) {
+        let id = 'opt' + i + '_' + j;
+        let div = document.createElement('div');
+        div.style.margin = '5px 0';
+        div.innerHTML = '<input type="radio" name="qopt" value="' + j + '" id="' + id + '"> <label for="' + id + '">' + opts[j] + '</label>';
+        optsDiv.appendChild(div);
+    }
+    resDiv.style.display = 'none';
+}
+
+sel.addEventListener('change', function() {
+    showQ(parseInt(this.value));
+});
+
+btn.addEventListener('click', function() {
+    let n = parseInt(sel.value) - 1;
+    let radios = document.getElementsByName('qopt');
+    let selected = null;
+    for (let r of radios) {
+        if (r.checked) {
+            selected = r.value;
+            break;
+        }
+    }
+    if (selected === null) {
+        resDiv.style.display = 'block';
+        resDiv.style.background = '#fff3cd';
+        resDiv.innerHTML = 'Выберите вариант ответа';
+        return;
+    }
+    if (parseInt(selected) === q[n].ans) {
+        resDiv.style.display = 'block';
+        resDiv.style.background = '#d4edda';
+        resDiv.innerHTML = 'Верно!';
+    } else {
+        resDiv.style.display = 'block';
+        resDiv.style.background = '#f8d7da';
+        resDiv.innerHTML = 'Неверно. Попробуйте ещё.';
+    }
+});
+
+showQ(1);
+</script>
+
+        </div>
+        <div class="nav-buttons">
+            <a href="index.html" class="btn">← На главную</a>
+            <a href="lesson5.html" class="btn">Далее →</a> 
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Урок 1. Измерение информации</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="overlay"></div>
+    <div class="sidebar">
+    
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Логотип колледжа" class="logo-img"> 
+            <span class="logo-text">Информатика</span>
+        </div>
+        
+        <h2>Меню курса</h2>
+        <a href="index.html">Главная</a>
+        <a href="lesson1.html">Урок 1. Измерение информации</a>
+        <a href="lesson2.html">Урок 2. Единицы измерения</a>
+        <a href="lesson3.html">Урок 3. Системы счисления (2/10)</a>
+        <a href="lesson4.html">Урок 4. Системы счисления (8/16)</a>
+        <a href="lesson5.html">Урок 5. Кодирование</a>
+        <a href="lesson6.html">Урок 6. Алгебра логики</a>
+        <a href="lesson7.html">Урок 7. Логические задачи</a>
+        <a href="lesson8.html">Урок 8. Теория графов</a>
+        <a href="lesson9.html">Урок 9. Поиск путей</a>
+        <a href="lesson10.html">Урок 10. Базы данных</a>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="content-placeholder">
+            <h1>Урок 1. Подходы к измерению информации</h1>
+
+            <h2>1. Что такое информация?</h2>
+            <p>Слово «информация» происходит от латинского <em>informatio</em> (сведение, разъяснение). В широком смысле информация — это любые сведения об окружающем мире, которые человек получает через органы чувств. В информатике сложилось несколько подходов к измерению информации, каждый из которых удобен в своей области.</p>
+            <ul>
+                <li><strong>Традиционный (обыденный):</strong> информация — это знания, сообщения, новости. Этот подход не даёт числовой меры.</li>
+                <li><strong>Вероятностный (содержательный):</strong> информация — это сведения, уменьшающие неопределённость знаний. Чем больше неопределённость снимается, тем больше информации.</li>
+                <li><strong>Алфавитный (объёмный):</strong> информация рассматривается как последовательность символов, и её количество зависит от длины сообщения и мощности алфавита.</li>
+            </ul>
+
+            <h2>2. Бит — единица измерения информации</h2>
+            <p>В компьютере вся информация представляется двоичным кодом (0 и 1). Один двоичный знак (0 или 1) называется <strong>битом</strong> (от англ. binary digit). Бит — наименьшая единица измерения количества информации.</p>
+            <p>С точки зрения содержательного подхода, сообщение, уменьшающее неопределённость ровно в два раза, несёт 1 бит информации.</p>
+
+            <h2>3. Содержательный (вероятностный) подход. Формула Хартли</h2>
+            <p>Представим, что мы ожидаем событие, которое может произойти с некоторой вероятностью. До получения сообщения у нас была неопределённость (несколько равновероятных вариантов). После получения сообщения неопределённость исчезает. Количество информации определяется тем, насколько уменьшилась неопределённость.</p>
+            <p>Если все N возможных событий равновероятны, то количество информации I, содержащееся в сообщении о том, что произошло одно из них, вычисляется по формуле <strong>Хартли</strong>:</p>
+            <div class="formula">
+                N = 2<sup>I</sup> &nbsp;&nbsp; или &nbsp;&nbsp; I = log<sub>2</sub> N
+            </div>
+            <p>Здесь N — число равновероятных событий, I — количество информации в битах.</p>
+
+            <h3>Примеры</h3>
+            <div class="example">
+                <p><strong>Пример 1.</strong> Подбрасывание монеты: возможно два исхода (орёл или решка). N = 2. По формуле I = log<sub>2</sub>2 = 1 бит. Сообщение о результате даёт 1 бит информации.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример 2.</strong> В коробке 8 разноцветных карандашей. Вы случайно вынимаете один. Сколько информации несёт сообщение о цвете карандаша?</p>
+                <p>N = 8 (все карандаши различны и равновероятны). I = log<sub>2</sub>8 = 3 бита.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример 3.</strong> Игральный кубик имеет 6 граней. N = 6, I = log<sub>2</sub>6 ≈ 2,585 бита. Количество информации может быть дробным.</p>
+            </div>
+
+            <h2>4. Алфавитный подход</h2>
+            <p>Этот подход используется в технике для определения объёма памяти, необходимого для хранения текста. Здесь не важна вероятность появления символов — каждый символ текста имеет определённый информационный вес.</p>
+            <p>Пусть алфавит некоторого языка содержит N символов. Тогда каждый символ можно закодировать с помощью i бит так, чтобы выполнялось соотношение:</p>
+            <div class="formula">
+                N ≤ 2<sup>i</sup>  ⇒  i = ⌈log<sub>2</sub> N⌉ (округляем вверх)
+            </div>
+            <p>Величина i называется <strong>информационным весом символа</strong>. Тогда информационный объём сообщения, состоящего из K символов, равен:</p>
+            <div class="formula">
+                I<sub>текст</sub> = K · i (бит)
+            </div>
+
+            <h3>Примеры</h3>
+            <div class="example">
+                <p><strong>Пример 4.</strong> Алфавит племени содержит 16 символов. Каков информационный вес одного символа?</p>
+                <p>N = 16, i = log<sub>2</sub>16 = 4 бита.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример 5.</strong> Сообщение, записанное буквами из 32‑символьного алфавита, содержит 140 символов. Какое количество информации оно несёт?</p>
+                <p>i = log<sub>2</sub>32 = 5 бит. I = 140 × 5 = 700 бит.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример 6.</strong> Сколько символов в сообщении, если его объём равен 1 Кбайт, а алфавит состоит из 256 символов?</p>
+                <p>1 Кбайт = 1024 байт = 8192 бит. i = log<sub>2</sub>256 = 8 бит = 1 байт. Значит, K = 8192 / 8 = 1024 символа.</p>
+            </div>
+
+            <h2>5. Связь между подходами</h2>
+            <p>Содержательный подход говорит о смысловой ценности информации, алфавитный — о техническом объёме. Например, одно и то же сообщение на разных языках (разные алфавиты) будет иметь разный объём, хотя смысл одинаков. В компьютерах всегда используется алфавитный подход: любой файл имеет размер в байтах, независимо от содержания.</p>
+
+         <h2>6. Проверочный тест</h2>
+            <div style="background: #f9f9f9; border-radius: 8px; padding: 20px; border: 1px solid #ccc; margin-top: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <label for="num">Выберите номер вопроса:</label>
+                    <select id="num" style="padding: 5px; margin-left: 10px;">
+                        <option value="1">Вопрос 1</option>
+                        <option value="2">Вопрос 2</option>
+                        <option value="3">Вопрос 3</option>
+                        <option value="4">Вопрос 4</option>
+                        <option value="5">Вопрос 5</option>
+                    </select>
+                </div>
+
+                <div id="qtext" style="font-weight: bold; margin-bottom: 15px;"></div>
+
+                <div id="opts"></div>
+
+                <button id="btn" style="background: #3498db; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; margin-top: 15px;">Проверить</button>
+
+                <div id="res" style="margin-top: 15px; padding: 10px; border-radius: 4px; display: none;"></div>
+            </div>
+        <script>
+                let q = [
+                    { text: "Сколько бит информации несёт сообщение о результате бросания симметричного восьмигранного кубика (грани 1..8)?", 
+                      opts: ["1 бит", "2 бита", "3 бита", "4 бита"], ans: 2 },
+                    { text: "В корзине лежат 16 шаров разного цвета. Сколько информации в сообщении «достали красный шар» (все шары равновероятны)?", 
+                      opts: ["2 бита", "4 бита", "8 бит", "16 бит"], ans: 1 },
+                    { text: "Алфавит содержит 64 символа. Каков информационный вес одного символа (в битах)? Сколько байт займёт сообщение из 200 таких символов?", 
+                      opts: ["6 бит, 150 байт", "5 бит, 125 байт", "7 бит, 175 байт", "8 бит, 200 байт"], ans: 0 },
+                    { text: "Сообщение занимает 2 страницы по 30 строк, в каждой строке 50 символов. Весь текст содержит 7500 байт. Какова мощность алфавита?", 
+                      opts: ["1024", "2048", "4096", "8192"], ans: 0 },
+                    { text: "Автомобильный номер длиной 6 символов составляется из 26 букв и 10 цифр. Каждый символ кодируется одинаковым минимальным количеством бит. Сколько байт нужно для хранения 100 номеров (с округлением до целых байт на номер)?", 
+                      opts: ["400", "450", "500", "600"], ans: 2 }
+                ];
+                let sel = document.getElementById('num');
+                let qdiv = document.getElementById('qtext');
+                let optsDiv = document.getElementById('opts');
+                let btn = document.getElementById('btn');
+                let resDiv = document.getElementById('res');
+                let cur = [];
+
+                function showQ(n) {
+                    let i = n - 1;
+                    qdiv.innerText = q[i].text;
+                    optsDiv.innerHTML = '';
+                    resDiv.style.display = 'none';
+                    let opts = q[i].opts;
+                    for (let j = 0; j < opts.length; j++) {
+                        let id = 'opt' + i + '_' + j;
+                        let div = document.createElement('div');
+                        div.style.margin = '5px 0';
+                        div.innerHTML = '<input type="radio" name="qopt" value="' + j + '" id="' + id + '"> <label for="' + id + '">' + opts[j] + '</label>';
+                        optsDiv.appendChild(div);
+                    }
+                }
+
+                sel.addEventListener('change', function() {
+                    showQ(parseInt(this.value));
+                });
+
+                btn.addEventListener('click', function() {
+                    let n = parseInt(sel.value) - 1;
+                    let radios = document.getElementsByName('qopt');
+                    let selected = null;
+                    for (let r of radios) {
+                        if (r.checked) {
+                            selected = r.value;
+                            break;
+                        }
+                    }
+                    if (selected === null) {
+                        resDiv.style.display = 'block';
+                        resDiv.style.background = '#fff3cd';
+                        resDiv.innerHTML = 'Выберите вариант ответа';
+                        return;
+                    }
+                    if (parseInt(selected) === q[n].ans) {
+                        resDiv.style.display = 'block';
+                        resDiv.style.background = '#d4edda';
+                        resDiv.innerHTML = 'Верно!';
+                    } else {
+                        resDiv.style.display = 'block';
+                        resDiv.style.background = '#f8d7da';
+                        resDiv.innerHTML = 'Неверно. Попробуйте ещё.';
+                    }
+                });
+
+                showQ(1);
+            </script>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn">← На главную</a>
+            <a href="lesson2.html" class="btn">Далее →</a> 
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Урок 6. Основы алгебры логики</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="overlay"></div>
+    <div class="sidebar">
+    
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Логотип колледжа" class="logo-img"> 
+            <span class="logo-text">Информатика</span>
+        </div>
+        
+        <h2>Меню курса</h2>
+        <a href="index.html">Главная</a>
+        <a href="lesson1.html">Урок 1. Измерение информации</a>
+        <a href="lesson2.html">Урок 2. Единицы измерения</a>
+        <a href="lesson3.html">Урок 3. Системы счисления (2/10)</a>
+        <a href="lesson4.html">Урок 4. Системы счисления (8/16)</a>
+        <a href="lesson5.html">Урок 5. Кодирование</a>
+        <a href="lesson6.html">Урок 6. Алгебра логики</a>
+        <a href="lesson7.html">Урок 7. Логические задачи</a>
+        <a href="lesson8.html">Урок 8. Теория графов</a>
+        <a href="lesson9.html">Урок 9. Поиск путей</a>
+        <a href="lesson10.html">Урок 10. Базы данных</a>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="content-placeholder">
+            <h1>Урок 6. Основы алгебры логики</h1>
+
+            <h2>1. Логические высказывания и переменные</h2>
+            <p><strong>Высказывание</strong> — это повествовательное предложение, о котором можно сказать, истинно оно или ложно. Например: «Земля вращается вокруг Солнца» — истина; «5 > 10» — ложь. Вопросительные и восклицательные предложения высказываниями не являются.</p>
+            <p>В алгебре логики высказывания обозначают логическими переменными (обычно латинскими буквами A, B, C…). Каждая переменная может принимать одно из двух значений: <strong>истина</strong> (1) или <strong>ложь</strong> (0).</p>
+
+            <h2>2. Логические операции</h2>
+            <p>Над высказываниями можно выполнять операции, результатом которых также будет истина или ложь. Рассмотрим основные операции.</p>
+
+            <h3>2.1. Инверсия (отрицание, НЕ, ¬, черта сверху)</h3>
+            <p>Инверсия меняет значение высказывания на противоположное. Обозначается: ¬A или A̅.</p>
+            <table>
+                <tr><th>A</th><th>¬A</th></tr>
+                <tr><td>0</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td></tr>
+            </table>
+            <p>Пример: A = «Сегодня понедельник». ¬A = «Сегодня не понедельник».</p>
+
+            <h3>2.2. Конъюнкция (логическое И, AND, &, ∧)</h3>
+            <p>Конъюнкция двух высказываний истинна только тогда, когда оба высказывания истинны. Обозначается: A ∧ B, A & B, A and B.</p>
+            <table>
+                <tr><th>A</th><th>B</th><th>A ∧ B</th></tr>
+                <tr><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td></tr>
+            </table>
+            <p>Пример: A = «Число чётное», B = «Число больше 10». A ∧ B означает «Число чётное и больше 10» (например, 12, 14…).</p>
+
+            <h3>2.3. Дизъюнкция (логическое ИЛИ, OR, ∨)</h3>
+            <p>Дизъюнкция двух высказываний ложна только тогда, когда оба высказывания ложны. Истинна, если хотя бы одно истинно. Обозначается: A ∨ B, A or B.</p>
+            <table>
+                <tr><th>A</th><th>B</th><th>A ∨ B</th></tr>
+                <tr><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td></tr>
+            </table>
+            <p>Пример: A = «Студент сдал экзамен», B = «Студент получил зачёт». A ∨ B означает «Студент сдал экзамен или получил зачёт» (возможно и то, и другое).</p>
+
+            <h3>2.4. Импликация (логическое следование, →)</h3>
+            <p>Импликация A → B ложна только в одном случае: когда A истинно, а B ложно. Во всех остальных случаях истинна. A называют посылкой, B — следствием. Обозначается: A → B.</p>
+            <table>
+                <tr><th>A</th><th>B</th><th>A → B</th></tr>
+                <tr><td>0</td><td>0</td><td>1</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td></tr>
+            </table>
+            <p>Пример: A = «Число делится на 4», B = «Число чётное». Тогда A → B означает: «Если число делится на 4, то оно чётное» — это истинное высказывание.</p>
+
+            <h3>2.5. Эквиваленция (логическое равенство, ↔, ≡)</h3>
+            <p>Эквиваленция истинна тогда, когда оба высказывания одновременно истинны или одновременно ложны. Обозначается: A ↔ B, A ≡ B.</p>
+            <table>
+                <tr><th>A</th><th>B</th><th>A ↔ B</th></tr>
+                <tr><td>0</td><td>0</td><td>1</td></tr>
+                <tr><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td></tr>
+            </table>
+            <p>Пример: A = «Треугольник равносторонний», B = «Все углы треугольника равны 60°». A ↔ B истинно.</p>
+
+            <h2>3. Приоритет логических операций</h2>
+            <p>Если в выражении нет скобок, сначала выполняется отрицание (НЕ), затем конъюнкция (И), затем дизъюнкция (ИЛИ), затем импликация и эквиваленция (обычно они имеют самый низкий приоритет). Для изменения порядка используются скобки.</p>
+
+            <h2>4. Таблицы истинности сложных выражений</h2>
+            <p>Для любого логического выражения можно построить таблицу истинности, перебирая все возможные комбинации значений переменных и вычисляя результат. Количество строк в таблице равно 2<sup>n</sup>, где n — число переменных.</p>
+            <p><strong>Пример:</strong> Построим таблицу для выражения (A ∨ B) ∧ ¬C.</p>
+            <table>
+                <tr><th>A</th><th>B</th><th>C</th><th>A ∨ B</th><th>¬C</th><th>(A ∨ B) ∧ ¬C</th></tr>
+                <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+            </table>
+
+            <h2>5. Основные законы алгебры логики</h2>
+            <p>Законы позволяют упрощать логические выражения и преобразовывать их к нужному виду. Ниже приведены наиболее важные тождества (здесь 1 — истина, 0 — ложь).</p>
+
+            <div class="formula">
+                <ul>
+                    <li><strong>Закон тождества:</strong> A = A</li>
+                    <li><strong>Закон непротиворечия:</strong> A ∧ ¬A = 0</li>
+                    <li><strong>Закон исключённого третьего:</strong> A ∨ ¬A = 1</li>
+                    <li><strong>Закон двойного отрицания:</strong> ¬¬A = A</li>
+                    <li><strong>Идемпотентность:</strong> A ∧ A = A, A ∨ A = A</li>
+                    <li><strong>Коммутативность:</strong> A ∧ B = B ∧ A, A ∨ B = B ∨ A</li>
+                    <li><strong>Ассоциативность:</strong> (A ∧ B) ∧ C = A ∧ (B ∧ C), (A ∨ B) ∨ C = A ∨ (B ∨ C)</li>
+                    <li><strong>Дистрибутивность:</strong> A ∧ (B ∨ C) = (A ∧ B) ∨ (A ∧ C), A ∨ (B ∧ C) = (A ∨ B) ∧ (A ∨ C)</li>
+                    <li><strong>Законы поглощения:</strong> A ∧ (A ∨ B) = A, A ∨ (A ∧ B) = A</li>
+                    <li><strong>Законы де Моргана:</strong><br>
+                        ¬(A ∧ B) = ¬A ∨ ¬B<br>
+                        ¬(A ∨ B) = ¬A ∧ ¬B
+                    </li>
+                    <li><strong>Свойства констант:</strong> A ∧ 1 = A, A ∧ 0 = 0, A ∨ 1 = 1, A ∨ 0 = A</li>
+                </ul>
+            </div>
+
+            <h2>6. Примеры упрощения логических выражений</h2>
+            <p>Используя законы, можно упрощать сложные выражения. Рассмотрим несколько примеров.</p>
+            <div class="example">
+                <p><strong>Пример 1:</strong> Упростить (A ∧ B) ∨ (A ∧ ¬B).</p>
+                <p><em>Решение:</em> Применим закон дистрибутивности: A ∧ (B ∨ ¬B) = A ∧ 1 = A. Ответ: A.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример 2:</strong> Упростить ¬(A ∨ B) ∨ (¬A ∧ B).</p>
+                <p><em>Решение:</em> По закону де Моргана ¬(A ∨ B) = ¬A ∧ ¬B. Тогда выражение принимает вид (¬A ∧ ¬B) ∨ (¬A ∧ B) = ¬A ∧ (¬B ∨ B) = ¬A ∧ 1 = ¬A. Ответ: ¬A.</p>
+            </div>
+            <div class="example">
+                <p><strong>Пример 3:</strong> Упростить (A → B) ∧ A.</p>
+                <p><em>Решение:</em> Заменим импликацию: A → B = ¬A ∨ B. Тогда (¬A ∨ B) ∧ A = (¬A ∧ A) ∨ (B ∧ A) = 0 ∨ (A ∧ B) = A ∧ B. Ответ: A ∧ B.</p>
+            </div>
+
+            <h2>7. Логические функции и способы их задания</h2>
+            <p>Логическая функция — это выражение, зависящее от логических переменных. Её можно задать:</p>
+            <ul>
+                <li>аналитически (формулой);</li>
+                <li>таблицей истинности;</li>
+                <li>словесным описанием;</li>
+                <li>логической схемой.</li>
+            </ul>
+
+            <h2>8. Применение алгебры логики</h2>
+            <h3>8.1. Логические схемы компьютера</h3>
+            <p>Элементарные логические операции реализуются электронными элементами — вентилями. Конъюнкция — вентиль И, дизъюнкция — вентиль ИЛИ, отрицание — вентиль НЕ. Комбинируя их, строят более сложные узлы процессора: сумматоры, триггеры, регистры.</p>
+
+            <h3>8.2. Поисковые запросы</h3>
+            <p>В поисковых системах логические операции используются для уточнения запроса. Например, запрос <em>информатика & ЕГЭ</em> означает, что страница должна содержать оба слова (конъюнкция). Запрос <em>информатика | ЕГЭ</em> — любое из слов (дизъюнкция). Оператор <em>!</em> или <em>-</em> часто обозначает отрицание.</p>
+            <p><strong>Пример.</strong> Пусть A — множество страниц, содержащих слово «кошки», B — слово «собаки». Тогда запрос A & B выдаст страницы, где есть оба слова, A | B — где есть хотя бы одно, A & ¬B — где есть «кошки», но нет «собаки».</p>
+
+<h2>5. Проверочный тест</h2>
+<div style="background: #f9f9f9; border-radius: 8px; padding: 20px; border: 1px solid #ccc; margin-top: 20px;">
+    <div style="margin-bottom: 15px;">
+        <label for="num">Выберите номер вопроса:</label>
+        <select id="num" style="padding: 5px; margin-left: 10px;">
+            <option value="1">Вопрос 1</option>
+            <option value="2">Вопрос 2</option>
+            <option value="3">Вопрос 3</option>
+            <option value="4">Вопрос 4</option>
+            <option value="5">Вопрос 5</option>
+        </select>
+    </div>
+
+    <div id="qtext" style="font-weight: bold; margin-bottom: 15px;"></div>
+    <div id="opts"></div>
+    <button id="btn" style="background: #007bff; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; margin-top: 15px;">Проверить</button>
+    <div id="res" style="margin-top: 15px; padding: 10px; border-radius: 4px; display: none;"></div>
+</div>
+
+<script>
+let q = [
+    { text: "Чему равно значение логического выражения (A → B) ∨ (¬A ∧ C) при A = 1, B = 0, C = 1?", 
+      opts: ["0", "1", "не определено", "зависит от порядка"], ans: 0 },
+    { text: "Упростите выражение: (A ∧ B) ∨ (A ∧ ¬B) ∨ (¬A ∧ B).", 
+      opts: ["A", "B", "A ∨ B", "A ∧ B"], ans: 2 },
+    { text: "Какое из следующих выражений тождественно равно (A ∧ B) ∨ (¬A ∧ C)?", 
+      opts: ["A ∧ B", "¬A ∧ C", "(A ∨ C) ∧ (¬A ∨ B) ∧ (B ∨ C)", "A ∨ C"], ans: 2 },
+    { text: "При каких значениях A, B, C истинно выражение (A ∨ B) ∧ (¬B ∨ C) ∧ (¬C ∨ ¬A)?", 
+      opts: ["только при A=0, B=1, C=1", "только при A=1, B=0, C=0", "при A=0,B=1,C=1 и A=1,B=0,C=0", "ни при каких"], ans: 2 },
+    { text: "Какое логическое выражение соответствует таблице истинности: A=0,B=0 → F=1; A=0,B=1 → F=0; A=1,B=0 → F=0; A=1,B=1 → F=1?", 
+      opts: ["A ∧ B", "¬A ∧ ¬B", "A ⊕ B (исключающее ИЛИ)", "A ↔ B (эквивалентность)"], ans: 3 }
+];
+
+let sel = document.getElementById('num');
+let qdiv = document.getElementById('qtext');
+let optsDiv = document.getElementById('opts');
+let btn = document.getElementById('btn');
+let resDiv = document.getElementById('res');
+
+function showQ(n) {
+    let i = n - 1;
+    qdiv.innerText = q[i].text;
+    optsDiv.innerHTML = '';
+    let opts = q[i].opts;
+    for (let j = 0; j < opts.length; j++) {
+        let id = 'opt' + i + '_' + j;
+        let div = document.createElement('div');
+        div.style.margin = '5px 0';
+        div.innerHTML = '<input type="radio" name="qopt" value="' + j + '" id="' + id + '"> <label for="' + id + '">' + opts[j] + '</label>';
+        optsDiv.appendChild(div);
+    }
+    resDiv.style.display = 'none';
+}
+
+sel.addEventListener('change', function() {
+    showQ(parseInt(this.value));
+});
+
+btn.addEventListener('click', function() {
+    let n = parseInt(sel.value) - 1;
+    let radios = document.getElementsByName('qopt');
+    let selected = null;
+    for (let r of radios) {
+        if (r.checked) {
+            selected = r.value;
+            break;
+        }
+    }
+    if (selected === null) {
+        resDiv.style.display = 'block';
+        resDiv.style.background = '#fff3cd';
+        resDiv.innerHTML = 'Выберите вариант ответа';
+        return;
+    }
+    if (parseInt(selected) === q[n].ans) {
+        resDiv.style.display = 'block';
+        resDiv.style.background = '#d4edda';
+        resDiv.innerHTML = 'Верно!';
+    } else {
+        resDiv.style.display = 'block';
+        resDiv.style.background = '#f8d7da';
+        resDiv.innerHTML = 'Неверно. Попробуйте ещё.';
+    }
+});
+
+showQ(1);
+</script>
+
+        </div>
+        <div class="nav-buttons">
+            <a href="index.html" class="btn">← На главную</a>
+            <a href="lesson7.html" class="btn">Далее →</a> 
+        </div>
+    </div>
+
+</body>
+</html>
